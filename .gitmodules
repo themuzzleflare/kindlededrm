@@ -1,0 +1,6 @@
+[submodule "dedrmgui"]
+	path = dedrmgui
+	url = https://github.com/themuzzleflare/dedrmgui.git
+[submodule "dedrmtools"]
+	path = dedrmtools
+	url = https://github.com/themuzzleflare/dedrmtools.git
