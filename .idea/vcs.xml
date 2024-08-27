@@ -5,4 +5,9 @@
       <inspection_tool class="CommitMessageSpellChecking" enabled="false" level="TYPO" enabled_by_default="false" />
     </profile>
   </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dedrmgui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dedrmtools" vcs="Git" />
+  </component>
 </project>
