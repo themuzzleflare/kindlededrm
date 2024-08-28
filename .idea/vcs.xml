@@ -6,7 +6,7 @@
     </profile>
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dedrmgui" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dedrmtools" vcs="Git" />
   </component>

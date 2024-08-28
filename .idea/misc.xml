@@ -43,13 +43,6 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
-  <component name="QodanaCloudProjectLink">
-    <option name="lastReportId" value="4KZ1R" />
-    <option name="linkedProjectId" value="3kM1J" />
-    <option name="linkedProjectName" value="New Project 3kM1J" />
-    <option name="organizationId" value="Av1wR" />
-    <option name="userId" value="31Ym3" />
-  </component>
   <component name="TypeScriptCompiler">
     <option name="typeScriptServiceDirectory" value="/opt/homebrew/lib/node_modules/typescript" />
     <option name="versionType" value="SERVICE_DIRECTORY" />
