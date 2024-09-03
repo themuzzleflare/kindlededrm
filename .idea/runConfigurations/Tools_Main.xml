@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tools Main" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="cloud.tavitian.dedrmtools.Main" />
+    <module name="dedrmtools" />
+    <option name="PROGRAM_PARAMETERS" value="-k $USER_HOME$/Downloads/Untitled.k4i -s 90D4220434430ECR -v $USER_HOME$/Downloads/1.azw3 $USER_HOME$/Downloads" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="cloud.tavitian.dedrmtools.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
