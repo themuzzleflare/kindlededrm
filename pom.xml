@@ -10,7 +10,7 @@
 
     <groupId>cloud.tavitian</groupId>
     <artifactId>kindlededrm</artifactId>
-    <version>5.0.0</version>
+    <version>6.0.0</version>
     <packaging>pom</packaging>
 
     <name>Kindle DeDRM</name>
