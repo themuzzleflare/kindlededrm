@@ -10,11 +10,19 @@
 
     <groupId>cloud.tavitian</groupId>
     <artifactId>kindlededrm</artifactId>
-    <version>6.0.0</version>
+    <version>7.0.0</version>
     <packaging>pom</packaging>
 
     <name>Kindle DeDRM</name>
     <description>Modules related to DRM removal.</description>
+
+    <developers>
+        <developer>
+            <id>themuzzleflare</id>
+            <name>Paul Tavitian</name>
+            <email>paul@tavitian.net.au</email>
+        </developer>
+    </developers>
 
     <modules>
         <module>dedrmtools</module>
@@ -24,6 +32,7 @@
     <properties>
         <maven.compiler.source>23</maven.compiler.source>
         <maven.compiler.target>23</maven.compiler.target>
+        <release>23</release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.11.0</junit.version>
         <javafx.version>23</javafx.version>
@@ -44,6 +53,14 @@
             <version>24.1.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugin-tools/maven-plugin-annotations -->
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>3.15.0</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -61,6 +78,75 @@
         </dependency>
     </dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cloud.tavitian</groupId>
+                <artifactId>dedrmtools</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>1.12.0</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.tukaani/xz -->
+            <dependency>
+                <groupId>org.tukaani</groupId>
+                <artifactId>xz</artifactId>
+                <version>1.10</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna-platform-jpms -->
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna-platform-jpms</artifactId>
+                <version>5.15.0</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-controls</artifactId>
+                <version>${javafx.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-fxml</artifactId>
+                <version>${javafx.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.github.mkpaz/atlantafx-base -->
+            <dependency>
+                <groupId>io.github.mkpaz</groupId>
+                <artifactId>atlantafx-base</artifactId>
+                <version>2.0.1</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.jfxtras/jmetro -->
+            <dependency>
+                <groupId>org.jfxtras</groupId>
+                <artifactId>jmetro</artifactId>
+                <version>11.6.16</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.controlsfx</groupId>
+                        <artifactId>controlsfx</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <plugins>
             <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
@@ -71,6 +157,9 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+                    <release>${release}</release>
+                    <verbose>true</verbose>
+                    <detail>true</detail>
                 </configuration>
             </plugin>
 
@@ -79,8 +168,103 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.4.0</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <detail>true</detail>
+                </configuration>
+            </plugin>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>3.1.3</version>
+                <configuration>
+                    <detail>true</detail>
+                </configuration>
+            </plugin>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <detail>true</detail>
+                </configuration>
+            </plugin>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <detail>true</detail>
+                </configuration>
+            </plugin>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <detail>true</detail>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <!--    <profiles>-->
+    <!--        <profile>-->
+    <!--            <id>mac-aarch64</id>-->
+    <!--            <activation>-->
+    <!--                <os>-->
+    <!--                    <name>Mac OS X</name>-->
+    <!--                    <arch>aarch64</arch>-->
+    <!--                </os>-->
+    <!--            </activation>-->
+    <!--        </profile>-->
+
+    <!--        <profile>-->
+    <!--            <id>mac</id>-->
+    <!--            <activation>-->
+    <!--                <os>-->
+    <!--                    <name>Mac OS X</name>-->
+    <!--                    <arch>x86_64</arch>-->
+    <!--                </os>-->
+    <!--            </activation>-->
+    <!--        </profile>-->
+
+    <!--        <profile>-->
+    <!--            <id>win</id>-->
+    <!--            <activation>-->
+    <!--                <os>-->
+    <!--                    <family>windows</family>-->
+    <!--                </os>-->
+    <!--            </activation>-->
+    <!--        </profile>-->
+
+    <!--        <profile>-->
+    <!--            <id>linux-aarch64</id>-->
+    <!--            <activation>-->
+    <!--                <os>-->
+    <!--                    <name>Linux</name>-->
+    <!--                    <arch>aarch64</arch>-->
+    <!--                </os>-->
+    <!--            </activation>-->
+    <!--        </profile>-->
+
+    <!--        <profile>-->
+    <!--            <id>linux</id>-->
+    <!--            <activation>-->
+    <!--                <os>-->
+    <!--                    <name>Linux</name>-->
+    <!--                    <arch>x86_64</arch>-->
+    <!--                </os>-->
+    <!--            </activation>-->
+    <!--        </profile>-->
+    <!--    </profiles>-->
 
 </project>
