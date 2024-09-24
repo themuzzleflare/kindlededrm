@@ -10,7 +10,7 @@
 
     <groupId>cloud.tavitian</groupId>
     <artifactId>kindlededrm</artifactId>
-    <version>7.0.0</version>
+    <version>8.0.0</version>
     <packaging>pom</packaging>
 
     <name>Kindle DeDRM</name>
@@ -30,9 +30,7 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
-        <release>23</release>
+        <java.version>23</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.11.0</junit.version>
         <javafx.version>23</javafx.version>
@@ -155,116 +153,57 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                    <release>${release}</release>
-                    <verbose>true</verbose>
-                    <detail>true</detail>
-                </configuration>
-            </plugin>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.4.0</version>
-                <configuration>
-                    <verbose>true</verbose>
-                    <detail>true</detail>
-                </configuration>
-            </plugin>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>3.1.3</version>
-                <configuration>
-                    <detail>true</detail>
-                </configuration>
-            </plugin>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
-                <configuration>
-                    <detail>true</detail>
-                </configuration>
-            </plugin>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version>
-                <configuration>
-                    <detail>true</detail>
-                </configuration>
-            </plugin>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.0</version>
-                <configuration>
-                    <detail>true</detail>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.4.0</version>
+                </plugin>
+
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.0</version>
+                </plugin>
+
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.4.2</version>
+                </plugin>
+
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.1.3</version>
+                </plugin>
+
+                <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-maven-plugin -->
+                <plugin>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-maven-plugin</artifactId>
+                    <version>0.0.8</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
-
-    <!--    <profiles>-->
-    <!--        <profile>-->
-    <!--            <id>mac-aarch64</id>-->
-    <!--            <activation>-->
-    <!--                <os>-->
-    <!--                    <name>Mac OS X</name>-->
-    <!--                    <arch>aarch64</arch>-->
-    <!--                </os>-->
-    <!--            </activation>-->
-    <!--        </profile>-->
-
-    <!--        <profile>-->
-    <!--            <id>mac</id>-->
-    <!--            <activation>-->
-    <!--                <os>-->
-    <!--                    <name>Mac OS X</name>-->
-    <!--                    <arch>x86_64</arch>-->
-    <!--                </os>-->
-    <!--            </activation>-->
-    <!--        </profile>-->
-
-    <!--        <profile>-->
-    <!--            <id>win</id>-->
-    <!--            <activation>-->
-    <!--                <os>-->
-    <!--                    <family>windows</family>-->
-    <!--                </os>-->
-    <!--            </activation>-->
-    <!--        </profile>-->
-
-    <!--        <profile>-->
-    <!--            <id>linux-aarch64</id>-->
-    <!--            <activation>-->
-    <!--                <os>-->
-    <!--                    <name>Linux</name>-->
-    <!--                    <arch>aarch64</arch>-->
-    <!--                </os>-->
-    <!--            </activation>-->
-    <!--        </profile>-->
-
-    <!--        <profile>-->
-    <!--            <id>linux</id>-->
-    <!--            <activation>-->
-    <!--                <os>-->
-    <!--                    <name>Linux</name>-->
-    <!--                    <arch>x86_64</arch>-->
-    <!--                </os>-->
-    <!--            </activation>-->
-    <!--        </profile>-->
-    <!--    </profiles>-->
-
 </project>
