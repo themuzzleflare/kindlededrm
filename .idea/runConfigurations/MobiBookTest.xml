@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MobiBookTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <module name="dedrmtools" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="cloud.tavitian.dedrmtools.mobidedrm.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="cloud.tavitian.dedrmtools.mobidedrm" />
+    <option name="MAIN_CLASS_NAME" value="cloud.tavitian.dedrmtools.mobidedrm.MobiBookTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

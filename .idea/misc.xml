@@ -40,6 +40,9 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectResources">
+    <resource url="https://logging.apache.org/xml/ns" location="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="23" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
