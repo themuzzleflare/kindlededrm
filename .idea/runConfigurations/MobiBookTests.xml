@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="MobiBookTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+  <configuration default="false" name="MobiBookTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
     <module name="dedrmtools" />
     <extension name="coverage">
       <pattern>
@@ -8,7 +8,7 @@
       </pattern>
     </extension>
     <option name="PACKAGE_NAME" value="cloud.tavitian.dedrmtools.mobidedrm" />
-    <option name="MAIN_CLASS_NAME" value="cloud.tavitian.dedrmtools.mobidedrm.MobiBookTest" />
+    <option name="MAIN_CLASS_NAME" value="cloud.tavitian.dedrmtools.mobidedrm.MobiBookTests" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <method v="2">

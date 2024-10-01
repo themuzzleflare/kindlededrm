@@ -1,14 +1,14 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="IonUtilsTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+  <configuration default="false" name="KindleKeyUtilsTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
     <module name="dedrmtools" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="cloud.tavitian.dedrmtools.kfxdedrm.*" />
+        <option name="PATTERN" value="cloud.tavitian.dedrmtools.kindlekeys.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
-    <option name="PACKAGE_NAME" value="cloud.tavitian.dedrmtools.kfxdedrm" />
-    <option name="MAIN_CLASS_NAME" value="cloud.tavitian.dedrmtools.kfxdedrm.IonUtilsTest" />
+    <option name="PACKAGE_NAME" value="cloud.tavitian.dedrmtools.kindlekeys" />
+    <option name="MAIN_CLASS_NAME" value="cloud.tavitian.dedrmtools.kindlekeys.KindleKeyUtilsTests" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <method v="2">
