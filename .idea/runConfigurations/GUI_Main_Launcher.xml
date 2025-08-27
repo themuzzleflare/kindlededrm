@@ -2,6 +2,7 @@
   <configuration default="false" name="GUI Main Launcher" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="cloud.tavitian.dedrmgui.Main" />
     <module name="dedrmgui" />
+    <option name="VM_PARAMETERS" value="--enable-native-access=javafx.graphics,com.sun.jna" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="cloud.tavitian.dedrmgui.*" />

@@ -10,7 +10,7 @@
 
     <groupId>cloud.tavitian</groupId>
     <artifactId>kindlededrm</artifactId>
-    <version>10.0.0</version>
+    <version>12.0.0</version>
     <packaging>pom</packaging>
 
     <name>Kindle DeDRM</name>
@@ -33,7 +33,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <java.version>24.0.2</java.version>
+        <java.version>24</java.version>
+        <specific.java.version>24.0.2</specific.java.version>
 
         <junit.version>5.13.4</junit.version>
         <javafx.version>24.0.2</javafx.version>
@@ -43,12 +44,7 @@
         <commons.text.version>1.14.0</commons.text.version>
         <xz.version>1.10</xz.version>
         <jna.platform.version>5.17.0</jna.platform.version>
-        <atlantafx.base.version>2.1.0</atlantafx.base.version>
-        <jmetro.version>11.6.16</jmetro.version>
         <nsmenufx.version>3.3.0</nsmenufx.version>
-        <aquafx.version>1.0.0</aquafx.version>
-        <log4j.version>2.25.1</log4j.version>
-        <jspecify.version>1.0.0</jspecify.version>
 
         <maven.clean.plugin.version>3.5.0</maven.clean.plugin.version>
         <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
@@ -123,30 +119,6 @@
                 <version>${javafx.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/io.github.mkpaz/atlantafx-base -->
-            <dependency>
-                <groupId>io.github.mkpaz</groupId>
-                <artifactId>atlantafx-base</artifactId>
-                <version>${atlantafx.base.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.jfxtras/jmetro -->
-            <dependency>
-                <groupId>org.jfxtras</groupId>
-                <artifactId>jmetro</artifactId>
-                <version>${jmetro.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.controlsfx</groupId>
-                        <artifactId>controlsfx</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.openjfx</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
             <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
             <dependency>
                 <groupId>com.google.code.gson</groupId>
@@ -173,28 +145,6 @@
                 <groupId>cloud.tavitian</groupId>
                 <artifactId>nsmenufx</artifactId>
                 <version>${nsmenufx.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cloud.tavitian</groupId>
-                <artifactId>aquafx</artifactId>
-                <version>${aquafx.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.jspecify/jspecify -->
-            <dependency>
-                <groupId>org.jspecify</groupId>
-                <artifactId>jspecify</artifactId>
-                <version>${jspecify.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-bom -->
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-bom</artifactId>
-                <version>${log4j.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -225,9 +175,9 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compiler.plugin.version}</version>
                     <configuration>
-                        <source>24</source>
-                        <target>24</target>
-                        <release>24</release>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <release>${java.version}</release>
                     </configuration>
                 </plugin>
 
