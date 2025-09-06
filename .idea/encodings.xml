@@ -5,7 +5,11 @@
     <file url="file://$PROJECT_DIR$/dedrmgui/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dedrmtools/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dedrmtools/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dedrmtools/src/main/resources-filtered" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources-filtered" charset="UTF-8" />
+    <file url="file:///src/main/java" charset="UTF-8" />
+    <file url="file:///src/main/resources" charset="UTF-8" />
   </component>
 </project>
