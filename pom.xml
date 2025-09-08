@@ -10,7 +10,7 @@
 
     <groupId>cloud.tavitian</groupId>
     <artifactId>kindlededrm</artifactId>
-    <version>13.0.0</version>
+    <version>14.0.0</version>
     <packaging>pom</packaging>
 
     <name>Kindle DeDRM</name>
@@ -36,10 +36,10 @@
         <java.version>24</java.version>
         <specific.java.version>24.0.2</specific.java.version>
 
-        <junit.version>5.13.4</junit.version>
+        <junit.version>6.0.0-M2</junit.version>
         <javafx.version>24.0.2</javafx.version>
         <gson.version>2.13.1</gson.version>
-        <jetbrains.annotations.version>26.0.2</jetbrains.annotations.version>
+        <jetbrains.annotations.version>26.0.2-1</jetbrains.annotations.version>
         <commons.text.version>1.14.0</commons.text.version>
         <xz.version>1.10</xz.version>
         <jna.platform.version>5.17.0</jna.platform.version>
@@ -51,6 +51,8 @@
         <maven.jar.plugin.version>3.4.2</maven.jar.plugin.version>
         <maven.resources.plugin.version>3.3.1</maven.resources.plugin.version>
         <maven.surefire.plugin.version>3.5.3</maven.surefire.plugin.version>
+        <maven.source.plugin.version>3.3.1</maven.source.plugin.version>
+        <maven.javadoc.plugin.version>3.11.3</maven.javadoc.plugin.version>
         <javafx.maven.plugin.version>1.0.0</javafx.maven.plugin.version>
     </properties>
 
@@ -185,6 +187,16 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>${maven.clean.plugin.version}</version>
+                    <configuration>
+                        <filesets>
+                            <fileset>
+                                <directory>target</directory>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                        </filesets>
+                    </configuration>
                 </plugin>
 
                 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
@@ -215,6 +227,39 @@
                     <version>${maven.install.plugin.version}</version>
                 </plugin>
 
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven.source.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven.javadoc.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <source>${java.version}</source>
+                    </configuration>
+                </plugin>
+
                 <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-maven-plugin -->
                 <plugin>
                     <groupId>org.openjfx</groupId>
@@ -228,6 +273,21 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
